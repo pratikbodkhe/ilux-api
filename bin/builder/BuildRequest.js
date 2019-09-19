@@ -3,10 +3,10 @@ const reader = require('../reader/ReadTestContent');
 const ConfigLoader = require('../reader/ConfigReader');
 
 
-function createRequestEndpoint(componentId) {
+function createRequestEndpoint(obj) {
   const config = new ConfigLoader().get();
   let endpoint = '';
-  const parameters = reader.getParameters(componentId);
+  const parameters = reader.getParameters(obj);
   let queryParams = '';
   // read and append the parameters to the end
   if (parameters !== {}) {
@@ -21,7 +21,7 @@ function createRequestEndpoint(componentId) {
   }
   queryParams = queryParams.substring(0, queryParams.length - 1);
 
-  endpoint = `${reader.getEnv(config)}${config.basePath}${componentId.path}${queryParams}`;
+  endpoint = `${reader.getEnv(config)}${config.basePath}${obj.endpoint.path}${queryParams}`;
   return endpoint;
 }
 
