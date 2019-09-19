@@ -1,0 +1,27 @@
+{
+    "env": {
+      "es6": true,
+      "node": true
+    },
+    "extends": 
+      "airbnb-base"
+    ,
+    "plugins": [
+      "import"
+    ],
+    "rules": {
+      "padded-blocks": [
+        "error",
+        {
+          "classes": "never"
+        }
+      ],
+      "no-use-before-define": [
+        "error",
+        {
+          "classes": false,
+          "functions": false
+        }
+      ]
+    }
+  }
