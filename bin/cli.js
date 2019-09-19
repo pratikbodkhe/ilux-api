@@ -2,7 +2,6 @@ const arg = require('arg');
 const Mocha = require('mocha');
 const fs = require('fs');
 const path = require('path');
-const config = require('../test/example/config');
 
 let options;
 const mocha = new Mocha({
@@ -13,20 +12,20 @@ const mocha = new Mocha({
 
 
 module.exports = {
+  getOptions() {
+    return options;
+  },
   cli(args) {
     options = parseArgumentsIntoOptions(args);
     runTests(options);
-  },
-  getOptions() {
-    return options;
   },
 };
 
 
 function parseArgumentsIntoOptions(rawArgs) {
-  const defaultTestDir = 'app/tests';
+  const defaultTestDir = 'bin/tests/';
   const defaultTests = 'test/example/tests';
-  const defaultConfiguration = 'test/example/config';
+  const defaultConfiguration = 'test/example/config.js';
   const args = arg(
     {
       '--config': String,

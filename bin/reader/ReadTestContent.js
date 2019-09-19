@@ -1,5 +1,5 @@
 /* eslint-disable global-require */
-const cli = require('../Cli');
+const cli = require('../cli');
 
 let testFile = '';
 

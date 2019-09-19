@@ -1,6 +1,5 @@
 module.exports = {
   basePath: '/api',
-  testsFile: `${process.cwd()}/test/example/tests.json`,
   assertionsPath: '/test/example/assertions/',
   envDetails: [
     {

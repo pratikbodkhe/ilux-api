@@ -9,12 +9,10 @@ const create = require('../builder/BuildRequest');
 const reader = require('../reader/ReadTestContent');
 const verify = require('../utils/TestHelper');
 const Config = require('../reader/ConfigReader');
-const cli = require('../Cli');
+const cli = require('../cli');
 
 const config = new Config();
-const configValues = require(`${process.cwd()}/${
-  cli.getOptions().configuration
-}`);
+const configValues = require(`${process.cwd()}/${cli.getOptions().configuration}`);
 
 config.set(configValues);
 reader.setTestPath(`${process.cwd()}/${cli.getOptions().endpoints}`);
