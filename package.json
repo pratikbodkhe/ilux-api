@@ -30,9 +30,5 @@
     "superagent": "^4.1.0",
     "superagent-logger": "^1.1.0",
     "typy": "^3.0.1"
-  },
-  "publishConfig": {
-    "registry": "http://npme.prod.mpp-kwatee.com:8080",
-    "tag": "latest"
   }
 }
