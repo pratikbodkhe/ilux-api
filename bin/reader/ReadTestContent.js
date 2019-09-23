@@ -1,14 +1,15 @@
 /* eslint-disable global-require */
 const cli = require('../cli');
 
-let testFile = '';
+let testsDirectory = '';
 
 function setTestPath(testFilePath) {
   // eslint-disable-next-line import/no-dynamic-require
-  testFile = require(testFilePath);
+  testsDirectory = testFilePath;
 }
+
 function getTestPath() {
-  return testFile;
+  return testsDirectory;
 }
 
 // from config
@@ -47,34 +48,21 @@ function getToken(config) {
 }
 
 // from the common tests file
-function getParameters(componentId) {
-
-  return componentId.parameters;
+function getParameters(obj) {
+  return obj.endpoint.parameters;
 }
 
 // from the common tests file
-function getRequestType(component) {
-  let requestType = '';
-  requestType = component.method;
-  return requestType;
+function getRequestType(obj) {
+  return obj.endpoint.method;
 }
 
-function getBody(componentId) {
-  let body = '';
-  testFile.endpoints.forEach((element) => {
-    if (element.id === componentId) {
-      // eslint-disable-next-line prefer-destructuring
-      body = element.body;
-    }
-  });
-  return body;
+function getBody(obj) {
+  return obj.endpoint.body;
 }
 
-function getAssertions(config, componentId) {
-  const filePath = `${process.cwd()}${config.assertionsPath}${componentId}.js`;
-  // eslint-disable-next-line import/no-dynamic-require
-  const assertions = require(filePath);
-  return assertions;
+function getAssertions(obj) {
+  return obj.assertions;
 }
 
 module.exports = {

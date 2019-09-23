@@ -23,8 +23,8 @@ module.exports = {
 
 
 function parseArgumentsIntoOptions(rawArgs) {
-  const defaultTestDir = 'bin/tests/';
-  const defaultTests = 'test/example/tests';
+  const defaultRunDir = 'bin/tests/';
+  const defaultTestsDir = 'test/example/API/';
   const defaultConfiguration = 'test/example/config.js';
   const args = arg(
     {
@@ -42,19 +42,19 @@ function parseArgumentsIntoOptions(rawArgs) {
   return {
     environment: args['--env'] || 'dev',
     configuration: args['--config'] || defaultConfiguration,
-    testDir: args['--testDir'] || defaultTestDir,
-    endpoints: args['--tests'] || defaultTests,
+    runDir: args['--testDir'] || defaultRunDir,
+    testsDir: args['--tests'] || defaultTestsDir,
   };
 }
 
 function runTests() {
-  const { testDir } = options;
+  const { runDir } = options;
 
-  fs.readdirSync(testDir)
+  fs.readdirSync(runDir)
     .filter(file =>
       file.substr(-3) === '.js')
     .forEach((file) => {
-      mocha.addFile(path.join(testDir, file));
+      mocha.addFile(path.join(runDir, file));
     });
 
   // Run the tests.
