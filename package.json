@@ -22,7 +22,7 @@
     "ajv": "^6.10.2",
     "ajv-keywords": "^3.4.1",
     "arg": "^4.1.1",
-    "aws-sdk": "^2.444.0",
+    "aws-sdk": "^2.814.0",
     "chai": "^4.2.0",
     "deep-equal-in-any-order": "^1.0.16",
     "mocha": "^5.2.0",
