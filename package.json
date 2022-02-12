@@ -19,7 +19,7 @@
     "lodash": "^4.17.13"
   },
   "dependencies": {
-    "ajv": "^6.10.2",
+    "ajv": "^6.12.3",
     "ajv-keywords": "^3.4.1",
     "arg": "^4.1.1",
     "aws-sdk": "^2.444.0",
